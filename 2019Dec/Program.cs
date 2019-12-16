@@ -1,4 +1,6 @@
 ﻿using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace _2019Dec
 {
@@ -6,22 +8,22 @@ namespace _2019Dec
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter your first number");
+            // add reference to selenium
+            // add reference to browser (eg: chrome)
 
-            int a = int.Parse( Console.ReadLine());
-            Console.WriteLine("The number you entered is " + a);
+            //open a chrome browser
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login?ReturnUrl=%2f");
 
-            Console.WriteLine("Enter your second number");
+            //identify & enter UN & PW
+            IWebElement userName = driver.FindElement(By.Id("UserName"));
+            userName.SendKeys("hari");
 
-            int b = int.Parse(Console.ReadLine());
-            Console.WriteLine("The number you entered is " + b);
+            //click Login
 
-            Console.WriteLine("Sum of 2 numbers are " + add(a,b));
+            // verify that the username is displayed
         }
 
-        private static int add(int x, int y)
-        {
-            return x + y;
-        }
+
     }
-}
+}   
