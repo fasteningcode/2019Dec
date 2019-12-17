@@ -3,9 +3,9 @@ using OpenQA.Selenium;
 
 namespace _2019Dec
 {
-    public static class LoginPage
+    public  class LoginPage
     {
-        public static void LoginSuccess(IWebDriver driver)
+        public  void LoginSuccess(IWebDriver driver)
         {
             //identify & enter UN & PW
             IWebElement userName = driver.FindElement(By.Id("UserName"));

@@ -16,21 +16,26 @@ namespace _2019Dec
             driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login?ReturnUrl=%2f");
 
             //accessing static method
-            LoginPage.LoginSuccess(driver);
+            //LoginPage.LoginSuccess(driver);
 
-            // verify that the username is displayed
-            IWebElement txtUserName =  driver.FindElement(By.XPath("//a[@href='#'][contains(.,'Hello hari!')]"));
+            //create instance of class
+            LoginPage login = new LoginPage();
+            //access the method of class using the instance
+            login.LoginSuccess(driver);
 
-            if (txtUserName.Text == "Hello hari!")
-                Console.WriteLine("Verified the username");
-            else
-                Console.WriteLine("Test failed to find the username");
 
-            // click on adminstration
-            driver.FindElement(By.XPath("//a[contains(.,'Administration')]")).Click();
+            // Create an instance of home page
+            HomePage home = new HomePage();
 
-            // click on time n materials
-            driver.FindElement(By.XPath("//a[@href='/TimeMaterial']")).Click();
+            // create a method to verify the username
+            home.VerifyUsername(driver);
+
+            // create a method to click adminstration
+            home.ClickAdminstration(driver);
+
+            // create a method to click time n materials
+            home.ClickTimenMaterial(driver);
+
 
             // click create new
 
@@ -44,6 +49,9 @@ namespace _2019Dec
             // create create time and material and verify
             // edit create time and material and verify
             // delete create time and material and verify
+
+            //close driver
+            driver.Quit();
         }
 
     }
