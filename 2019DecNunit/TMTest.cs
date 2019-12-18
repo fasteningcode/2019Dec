@@ -1,18 +1,21 @@
-﻿using System;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace _2019Dec
+namespace _2019DecNunit
 {
-    class Program
+    public class Tests
     {
-        static void Main(string[] args)
+        IWebDriver driver;
+
+        [SetUp]
+        public void Setup()
         {
             // add reference to selenium
             // add reference to browser (eg: chrome)
 
             //open a chrome browser
-            IWebDriver driver = new ChromeDriver();
+            driver = new ChromeDriver();
             driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login?ReturnUrl=%2f");
 
             //accessing static method
@@ -22,6 +25,31 @@ namespace _2019Dec
             LoginPage login = new LoginPage();
             //access the method of class using the instance
             login.LoginSuccess(driver);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            //close driver
+            driver.Quit();
+        }
+
+        [Test]
+        public void EditTMnVerify()
+        {
+
+        }
+        
+        [Test]
+
+        public void DeletenVerify()
+        {
+
+        }
+
+        [Test]
+        public void CreateTMnVerify()
+        {       
 
 
             // Create an instance of home page
@@ -38,21 +66,26 @@ namespace _2019Dec
 
 
             // click create new
-
+            TimeMaterialPage timeMaterial = new TimeMaterialPage();
+            timeMaterial.ClickCreateNew(driver);
 
             // enter valid information and click save
+            timeMaterial.EnterValidDetails(driver);
 
             //verify that the time n material object is displayed in the table
 
+
+
+
             //assignment
             // complete 3 test cases
-            // create create time and material and verify
             // edit create time and material and verify
             // delete create time and material and verify
 
-            //close driver
-            driver.Quit();
-        }
+            
 
+            //added reference for nunit3 & nunit3testadapter
+        }
     }
-}   
+
+}
