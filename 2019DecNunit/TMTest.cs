@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace _2019DecNunit
 {
@@ -67,12 +68,13 @@ namespace _2019DecNunit
 
             // click create new
             TimeMaterialPage timeMaterial = new TimeMaterialPage();
-            timeMaterial.ClickCreateNew(driver);
+            //timeMaterial.ClickCreateNew(driver);
 
             // enter valid information and click save
-            timeMaterial.EnterValidDetails(driver);
+            //timeMaterial.EnterValidDetails(driver);
 
             //verify that the time n material object is displayed in the table
+            timeMaterial.ValidateDetails(driver);
 
 
 
@@ -85,6 +87,35 @@ namespace _2019DecNunit
             
 
             //added reference for nunit3 & nunit3testadapter
+        }
+
+        [Test]
+        public void TestDemo()
+        {
+            // R1 C1    //*[@id="tmsGrid"]/div[3]/table/tbody/tr[1]/td[1]
+            // R1 C2    //*[@id="tmsGrid"]/div[3]/table/tbody/tr[2]/td[1]
+
+
+            //R1 C2     //*[@id="tmsGrid"]/div[3]/table/tbody/tr[1]/td[2]
+            //R2 C2     //*[@id="tmsGrid"]/div[3]/table/tbody/tr[2]/td[2]
+
+            // string concatnaton
+
+            //hello1world
+            //hello2world
+            //hello3world
+            //    ..
+            //.
+            //.
+            //.
+            //..
+            ////hello3world
+            ///
+
+            for(int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine("hello"+i+"world");
+            }
         }
     }
 
