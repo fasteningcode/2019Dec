@@ -5,7 +5,21 @@ namespace _2019DecNunit
 {
     public class HomePage
     {
-        internal void VerifyUsername(IWebDriver driver)
+        private IWebDriver driver;
+
+        public HomePage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        //IWebDriver driver;
+
+        //public HomePage(IWebDriver driver)
+        //{
+        //    driver = driver;
+        //}
+
+        internal void VerifyUsername()
         {
             // verify that the username is displayed
             IWebElement txtUserName = driver.FindElement(By.XPath("//a[@href='#'][contains(.,'Hello hari!')]"));
@@ -17,13 +31,13 @@ namespace _2019DecNunit
 
         }
 
-        internal void ClickAdminstration(IWebDriver driver)
+        internal void ClickAdminstration()
         {
             // click on adminstration
             driver.FindElement(By.XPath("//a[contains(.,'Administration')]")).Click();
         }
 
-        internal void ClickTimenMaterial(IWebDriver driver)
+        internal void ClickTimenMaterial()
         {
 
             // click on time n materials

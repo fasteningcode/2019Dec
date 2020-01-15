@@ -23,9 +23,9 @@ namespace _2019DecNunit
             //LoginPage.LoginSuccess(driver);
 
             //create instance of class
-            LoginPage login = new LoginPage();
+            LoginPage login = new LoginPage(driver);
             //access the method of class using the instance
-            login.LoginSuccess(driver);
+            login.LoginSuccess();
         }
 
         [TearDown]
@@ -54,24 +54,24 @@ namespace _2019DecNunit
 
 
             // Create an instance of home page
-            HomePage home = new HomePage();
+            HomePage home = new HomePage(driver);
 
             // create a method to verify the username
-            home.VerifyUsername(driver);
+            home.VerifyUsername();
 
             // create a method to click adminstration
-            home.ClickAdminstration(driver);
+            home.ClickAdminstration();
 
             // create a method to click time n materials
-            home.ClickTimenMaterial(driver);
+            home.ClickTimenMaterial();
 
 
             // click create new
             TimeMaterialPage timeMaterial = new TimeMaterialPage();
-            //timeMaterial.ClickCreateNew(driver);
+            timeMaterial.ClickCreateNew(driver);
 
             // enter valid information and click save
-            //timeMaterial.EnterValidDetails(driver);
+            timeMaterial.EnterValidDetails(driver);
 
             //verify that the time n material object is displayed in the table
             timeMaterial.ValidateDetails(driver);
